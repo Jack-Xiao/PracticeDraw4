@@ -37,8 +37,21 @@ public class Practice04ScaleView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        //scale 缩放
+        int bitmapWidth = bitmap.getWidth();
+        int bitmapHeight = bitmap.getHeight();
 
+//        px py 是放缩的轴心
+        canvas.save();
+        canvas.scale(1.5f, 1.5f, point1.x + bitmapWidth / 2, point1.y + bitmapHeight / 2);
         canvas.drawBitmap(bitmap, point1.x, point1.y, paint);
+        canvas.restore();
+
+        canvas.save();
+        canvas.scale(0.6f, 1.6f, point2.x + bitmapWidth / 2, point2.y + bitmapHeight / 2);
         canvas.drawBitmap(bitmap, point2.x, point2.y, paint);
+        canvas.restore();
+
+
     }
 }

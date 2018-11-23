@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.support.annotation.Nullable;
@@ -38,7 +39,16 @@ public class Practice07MatrixTranslateView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+        //Matrix 做常见变换的方式：
+        //
+        //创建 Matrix 对象；
+        //调用 Matrix 的 pre/postTranslate/Rotate/Scale/Skew() 方法来设置几何变换；
+        //使用 Canvas.setMatrix(matrix) 或 Canvas.concat(matrix) 来把几何变换应用到 Canvas。
+
+        Matrix matrix = new Matrix();
+        matrix.reset();
         canvas.drawBitmap(bitmap, point1.x, point1.y, paint);
+
         canvas.drawBitmap(bitmap, point2.x, point2.y, paint);
     }
 }
